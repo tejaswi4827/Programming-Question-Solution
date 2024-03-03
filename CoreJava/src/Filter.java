@@ -23,5 +23,20 @@ public class Filter {
 	
 	li.stream().flatMap(Collection::stream).forEach(System.out::println);
 	System.out.println(res+ " "+res1);
+	
+	
+	
+// converting array to list and list to array 
+    int a[] = new int [3];
+    a[0]=2;a[1]=4;a[2]=3;
+   
+ List<Integer> list =Arrays.stream(a).boxed().collect(Collectors.toList());
+ 
+    
+  List<Integer> res2 =  list.stream().filter(item -> item %2 == 0).collect(Collectors.toList());
+	System.out.println(res2);
+	
+	int intarr[] = res2.stream().mapToInt(i->i).toArray();
+	System.out.println(intarr[0]);
 	}
 }

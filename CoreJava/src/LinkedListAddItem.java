@@ -1,3 +1,4 @@
+import java.security.PublicKey;
 
 class Node {
 	Node next;
@@ -83,7 +84,6 @@ public class LinkedListAddItem {
 
 		}
 
-
 		newNode.next = head.next;
 		head.next = newNode;
 		return rootNode;
@@ -97,6 +97,24 @@ public class LinkedListAddItem {
 			System.out.print(rootNode.item + " ");
 			rootNode = rootNode.next;
 		}
+
+	}
+// to reverse node of linked list in java 
+	private static Node reverseList(Node rootNode) {
+		Node headNode = rootNode;
+		Node curNode = headNode;
+		Node prevNode = null;
+		while (headNode != null) {
+			  curNode=headNode.next;
+			  headNode.next = prevNode;
+			  prevNode=headNode;
+			  headNode =curNode;
+			
+			
+		}
+
+		return prevNode;
+
 	}
 
 	public static void main(String[] args) {
@@ -126,5 +144,10 @@ public class LinkedListAddItem {
 		System.out.println();
 		System.out.println("***************  Node of value 400 added after 4 **********************");
 		LinkedListAddItem.printNode(addNodeAfter4); // 100 1 2 3 4 5 10
+
+	Node resNode= LinkedListAddItem.reverseList(rootNode);
+	System.out.println("reverse node");
+		LinkedListAddItem.printNode(resNode);
 	}
+
 }
